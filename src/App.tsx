@@ -40,6 +40,38 @@ export default function App() {
     }
   }, [darkMode]);
 
+  // Trigger link on every 7th click on the screen
+  useEffect(() => {
+    let clickCount = 0;
+    const targetUrl = 'https://www.profitableratecpmnetwork.com/ztjqi1kqjc?key=34502ca83e6573285910b05488d1e269';
+
+    const handleGlobalClick = () => {
+      clickCount += 1;
+      if (clickCount % 7 === 0) {
+        try {
+          const anchor = document.createElement('a');
+          anchor.href = targetUrl;
+          anchor.target = '_blank';
+          anchor.rel = 'noopener noreferrer';
+          document.body.appendChild(anchor);
+          anchor.click();
+          document.body.removeChild(anchor);
+        } catch {
+          try {
+            window.open(targetUrl, '_blank', 'noopener,noreferrer');
+          } catch {
+            // ignore if popup blocked
+          }
+        }
+      }
+    };
+
+    window.addEventListener('click', handleGlobalClick);
+    return () => {
+      window.removeEventListener('click', handleGlobalClick);
+    };
+  }, []);
+
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
   };
