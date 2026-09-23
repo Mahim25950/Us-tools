@@ -1,0 +1,6 @@
+{
+  "name": "US Life Tools",
+  "description": "Modern all-in-one daily US utility hub with dark mode, interactive financial calculators, time zone and unit converters, shipping estimates, and PDF tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
